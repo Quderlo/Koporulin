@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+}
+
+div.blockControl {
+    color:white;
+    background-color: rgb(91, 144, 204);
+    height: auto;
+}
+
+h1 {
+    padding: 15px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 2px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+}
+
+td {
+    padding: 2px;
+}
+
+td.left {
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+td.right {
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+td.both {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+td.bottom {
+    border-bottom: 2px solid white;
+}
+
+div.block {
+    background-color: rgb(128, 128, 128);
+}
