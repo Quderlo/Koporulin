@@ -10,37 +10,54 @@
         
         <table class="inputs">
             <tr>
-                <td class="input"><label for="num1"></label><input type="number" id="num1"></td><td class="sign" rowspan="2">+</td>
+                <td class="input"><label for="num1"></label><input class="inputNumber" type="number" id="num1"></td>
+                <td class="sign" rowspan="2"><label for="displayedSign"></label><input class="sign" type="text" id="displayedSign" disabled></td>
             </tr>
             <tr>
-                <td class="input"><label for="num2"></label><input type="number" id="num2"></td>
+                <td class="input"><label for="num2"></label><input class="inputNumber" type="number" id="num2"></td>
             </tr>
         </table>
 
         <div class="buttons">
             <table>
                 <tr>
-                    <td><button class="calc" onclick="setOperation('%')">%</button></td><td><button class="calc" onclick="setOperation('xⁿ')">xⁿ</button></td>
-                    <td><button class="calc" onclick="setOperation('√x')">ⁿ√x</button></td><td><button class="calc" onclick="setOperation('/')">÷</button></td>
+                    <td><button class="calc" onclick=""></button></td>
+                    <td><button class="calc" onclick="deleteSelectedLine()">CE</button></td>
+                    <td><button class="calc" onclick="deleteAllLines()">C</button></td>
+                    <td><button class="calc" onclick="deleteSymbol()">⌫</button></td>
+                </tr>
+                <tr>
+                    <td><button class="calc" onclick="setOperation('%')">%</button></td>
+                    <td><button class="calc" onclick="setOperation('xⁿ')">xⁿ</button></td>
+                    <td><button class="calc" onclick="setOperation('√x')">ⁿ√x</button></td>
+                    <td><button class="calc" onclick="setOperation('÷')">÷</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class="calc">7</button></td><td><button class="calc">8</button></td><td><button class="calc">9</button></td>
-                    <td><button class="calc" onclick="setOperation('*')">×</button></td>
+                    <td><button onclick="insertInput(7)" id="bt7" class="calc">7</button></td>
+                    <td><button onclick="insertInput(8)" id="bt8" class="calc">8</button></td>
+                    <td><button onclick="insertInput(9)" id="bt9" class="calc">9</button></td>
+                    <td><button class="calc" onclick="setOperation('×')">×</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class="calc">4</button></td><td><button class="calc">5</button></td><td><button class="calc">6</button></td>
+                    <td><button onclick="insertInput(4)" id="bt4" class="calc">4</button></td>
+                    <td><button onclick="insertInput(5)" id="bt5" class="calc">5</button></td>
+                    <td><button onclick="insertInput(6)" id="bt6" class="calc">6</button></td>
                     <td><button class="calc" onclick="setOperation('-')">-</button></td>
                 </tr>
 
                 <tr>    
-                    <td><button class="calc">1</button></td><td><button class="calc">2</button></td><td><button class="calc">3</button></td>
+                    <td><button onclick="insertInput(1)" id="bt1" class="calc">1</button></td>
+                    <td><button onclick="insertInput(2)" id="bt2" class="calc">2</button></td>
+                    <td><button onclick="insertInput(3)" id="bt3" class="calc">3</button></td>
                     <td><button class="calc" onclick="setOperation('+')">+</button></td>
                 </tr>
 
                 <tr>
-                    <td><button class="calc">+/-</button></td><td><button class="calc">0</button></td><td><button class="calc">,</button></td>
+                    <td><button onclick="changePlusMinus()" class="calc">+/-</button></td>
+                    <td><button onclick="insertInput(0)" id="bt0" class="calc">0</button></td>
+                    <td><button class="calc">,</button></td>
                     <td><button class="res" onclick="calculate(document.getElementById('num1').value, document.getElementById('num2').value)">=</button></td>
                 </tr>
 
