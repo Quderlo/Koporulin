@@ -13,27 +13,45 @@
                 <th colspan="2">Высота</th>
                 <th>Цвет</th>
                 <th colspan="5">Границы</th>
+                <th colspan="2">Тень</th>
             </tr>
             <tr>
                  <!-- Ширина -->
-                <td class="left"><button>Уменьшить</button> </td><td class="right"><button>Увеличить</button>
+                <td class="left"><button>Уменьшить</button> </td><td class="right"><button onclick="widthPlus()">Увеличить</button>
                 <!-- Высота -->
                 <td class="left"><button>Уменьшить</button> <td class="right"><button>Увеличить</button></td>
                 <!-- Цвет -->
-                <td class="both"><button>Случайный</button>
+                <td class="both"><button onclick="changeColor()">Случайный</button>
                 <!-- Границы -->
                 <td class="left"><button>Вкл/Выкл</button>
                 <td class="bottom"><button>Цвет</button>
                 <td class="bottom"><button>Стиль</button>
                 <td class="bottom"><button>Уменьшить толщину</button>
                 <td class="right"><button>Увеличить толщину</button>
-                <!-- Ширина -->
+                <!-- Тень -->
+                <td class="left"><button>Вкл/Выкл</button>
+                <td class="right"><button>Изменить</button>
+                
+            </tr>
+            <tr>
+                <!-- Текст -->
+                <th colspan="7">Текст</th>
+            </tr>
+            <tr>
+                <td class="left"><button>Изменить текст на</button>
+                <td colspan="2" class="bottom">
+                    <label></label><input>
+                </td>
+                <td class="bottom"><button>На позицию влево</button>
+                <td class="bottom"><button>На позицию вправо</button>
+                <td class="bottom"><button>Добавить повторения</td>
+                <td class="right"><button>Уменьшить повторения</td>
                 
             </tr>
         </table>
     </div>
 
-    <div class="block">
+    <div id="block" class="block">
         <p>Это блок!</p>
     </div>
 

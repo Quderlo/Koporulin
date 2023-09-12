@@ -70,6 +70,8 @@ function changePlusMinus() {
 }
 
 function calculate(x, y) {
+    console.log("x = " + x);
+    console.log("y = " + y);
     x = Number (x);
     y = Number (y);
     switch (selectedSign) {
