@@ -58,13 +58,79 @@ input {
     width: 200px;
 }
 
-
-
 div.block {
     background-color: rgb(128, 128, 128);
-    margin-top: 200px;
-    width: 300px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+    overflow: hidden;
+    border: 0px;
+    border-style: solid;
+    box-shadow: none;
+
 }
+
+/*Изменение позиций текста*/
+.top-left {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+  }
+  
+  .top-center {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .top-right {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+  }
+  
+  .middle-left {
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    transform: translateY(-50%);
+  }
+  
+  .middle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .middle-right {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+  }
+  
+  .bottom-left {
+    position: absolute;
+    bottom: 9px;
+    left: 9px;
+  }
+  
+  .bottom-center {
+    position: absolute;
+    bottom: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
+  }
+

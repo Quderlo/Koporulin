@@ -17,44 +17,45 @@
             </tr>
             <tr>
                  <!-- Ширина -->
-                <td class="left"><button>Уменьшить</button> </td><td class="right"><button onclick="widthPlus()">Увеличить</button>
+                 <td class="left"><button class="width_block">Уменьшить</button></td>
+                 <td class="right"><button class="width_block">Увеличить</button></td>
                 <!-- Высота -->
-                <td class="left"><button>Уменьшить</button> <td class="right"><button>Увеличить</button></td>
+                <td class="left"><button class="height_block">Уменьшить</button> </td>
+                <td class="right"><button class="height_block">Увеличить</button></td>
                 <!-- Цвет -->
-                <td class="both"><button onclick="changeColor()">Случайный</button>
+                <td class="both"><button class="color_block">Случайный</button></td>
                 <!-- Границы -->
-                <td class="left"><button>Вкл/Выкл</button>
-                <td class="bottom"><button>Цвет</button>
-                <td class="bottom"><button>Стиль</button>
-                <td class="bottom"><button>Уменьшить толщину</button>
-                <td class="right"><button>Увеличить толщину</button>
+                <td class="left"><button class="enable_border">Вкл/Выкл</button></td>
+                <td class="bottom"><button class="color_border">Цвет</button></td>
+                <td class="bottom"><button class="style">Стиль</button></td>
+                <td class="bottom"><button class="width_border">Уменьшить толщину</button></td>
+                <td class="right"><button class="width_border">Увеличить толщину</button></td>
                 <!-- Тень -->
-                <td class="left"><button>Вкл/Выкл</button>
-                <td class="right"><button>Изменить</button>
-                
+                <td class="left"><button class="enable_shadow">Вкл/Выкл</button></td>
+                <td class="right"><button class="change_shadow">Изменить</button></td>
+                <!-- Стиль это изменять альфа канал от ~0 до 1 (tg) -->
             </tr>
             <tr>
                 <!-- Текст -->
-                <th colspan="7">Текст</th>
+                <th colspan="6">Текст</th>
+                <th colspan="2">Анимация текста</th>
             </tr>
             <tr>
-                <td class="left"><button>Изменить текст на</button>
-                <td colspan="2" class="bottom">
-                    <label></label><input>
-                </td>
-                <td class="bottom"><button>На позицию влево</button>
-                <td class="bottom"><button>На позицию вправо</button>
-                <td class="bottom"><button>Добавить повторения</td>
-                <td class="right"><button>Уменьшить повторения</td>
-                
+                <td class="left"><button class="change_text">Изменить текст на</button></td>
+                <td colspan="2" class="bottom"> <label title="text" class="text"></label><input class="text" title="text" type="text"></input></td>
+                <td class="bottom"><button class="text_shift_left">Добавить повторения</td>
+                <td class="bottom"><button class="text_shift_right">Уменьшить повторения</td>
+                <td class="right"><button class="text_position">Изменить положение</td>
+                <td class="left"><button class="enable_text_animations">Вкл/выкл анимацию текста</button></td>
+                <td class="right"><button class="change_text_animations">Изменить анимацию текста</button></td>
             </tr>
         </table>
     </div>
 
-    <div id="block" class="block">
-        <p>Это блок!</p>
+    <div class="block">
+        <p class="text_content">
+            <span class="block_text">Это блок!</span>
+        </p>
     </div>
-
-
 </body>
 </html>
