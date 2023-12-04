@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="blockControl">
+        <h1> Блок управления</h1>
+        <table class="Control">
+            <tr>
+                <th colspan="2">Ширина</th>
+                <th colspan="2">Высота</th>
+                <th colspan="2">Заполнить случайными числами</th>
+                <th>Обнуление ячеек</th>
+                <th colspan="2">Поворот матрицы</th>
+            </tr>
+            <tr>
+                 <!-- Ширина -->
+                 <td class="left"><button class="width_block">Уменьшить</button></td>
+                 <td class="right"><button class="width_block">Увеличить</button></td>
+                <!-- Высота -->
+                <td class="left"><button class="height_block">Уменьшить</button> </td>
+                <td class="right"><button class="height_block">Увеличить</button></td>
+                <!-- Заполнить случайными числами -->
+                <td colspan="2" class="both"><button class="random_number_matrix">Заполнить случайными числами</button></td>
+                <!-- Обнуление ячеек -->
+                <td class="both"><button class="clear_matrix">Обнулить матрицу</button></td>
+                <!-- Поворот матрицы -->
+                <td class="left"><button class="rotate_clockwise_block">Против часовой</button> </td>
+                <td class="right"><button class="rotate_counterclockwise_block">По часовой</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="matrix_block">
+        <table class="matrix">
+            <tr>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+            <tr>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
