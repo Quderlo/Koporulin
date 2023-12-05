@@ -3,67 +3,51 @@ document.addEventListener("DOMContentLoaded", function() {
     var block = document.querySelector(".block");
 
     // Ширина
-    var decreaseWidthBtn = document.querySelector(".left .width_block");
-    var increaseWidthBtn = document.querySelector(".right .width_block");
+    var blockWidth = document.querySelector(".left .width_block");
 
     // Высота
-    var decreaseHeightBtn = document.querySelector(".left .height_block");
-    var increaseHeightBtn = document.querySelector(".right .height_block");
+    var blockHeight = document.querySelector(".left .height_block");
 
     // Цвет
-    var randomColorBtn = document.querySelector(".both .color_block");
+    var blockColorSelect = document.getElementById('blockColorSelect');
 
     // Границы
     var toggleBorderBtn = document.querySelector(".left .enable_border");
-    var borderColorBtn = document.querySelector(".bottom .color_border");
-    var borderStyleBtn = document.querySelector(".bottom .style");
-    var decreaseBorderWidthBtn = document.querySelector(".bottom .width_border");
-    var increaseBorderWidthBtn = document.querySelector(".right .width_border");
+    var borderColorSelect = document.querySelector("#borderColorSelect");
+    var borderStyleSelect = document.querySelector("#borderStyleSelect");
+    var BorderWidthButton = document.querySelector(".bottom .width_border");
 
     // Тень
-    var enableShadowBtn = document.querySelector(".left .enable_shadow");
-    var changeShadowBtn = document.querySelector(".right .change_shadow");
+    var shadowColorSelect = document.querySelector("#shadowColorSelect");
+    var shadowSidesSelect = document.querySelector("#shadowSidesSelect");
 
     // Текстк
-    var blockText = document.querySelector(".block_text");
     var textContent = document.querySelector(".block .text_content")
     var changeTextBtn = document.querySelector(".left .change_text");
-    var textPositionBtn = document.querySelector(".right .text_position");
-    var enableTextAnimationsBtn = document.querySelector(".left .enable_text_animations");
-    var changeTextAnimationsBtn = document.querySelector(".right .change_text_animations");
+    var textPositionBtn = document.querySelector("#textPositionSelect");
+    var textAnimationSelect = document.querySelector("#textAnimationSelect");
+    var newtext = "";
 
 
     // ----------------------------------------БЛОК------------------------------------------- //
 
 
     // Ширина блока
-    decreaseWidthBtn.addEventListener("click", function() {
-        var currentWidth = parseInt(getComputedStyle(block).width);
-        block.style.width = (currentWidth - 10) + "px";
-    });
-
-    // Ширина блока
-    increaseWidthBtn.addEventListener("click", function() {
-        var currentWidth = parseInt(getComputedStyle(block).width);
-        block.style.width = (currentWidth + 10) + "px";
+    blockWidth.addEventListener("click", function() {
+        var widthInput = document.querySelector(".right .width[type='number']")
+        block.style.width = widthInput.value + "px";
     });
 
     // Высота блока
-    decreaseHeightBtn.addEventListener("click", function() {
-        var currentHeight = parseInt(getComputedStyle(block).height);
-        block.style.height = (currentHeight - 10) + "px";
-    });
-
-    // Высота блока
-    increaseHeightBtn.addEventListener("click", function() {
-        var currentHeight = parseInt(getComputedStyle(block).height);
-        block.style.height = (currentHeight + 10) + "px";
+    blockHeight.addEventListener("click", function() {
+        var heightInput = document.querySelector(".right .height[type='number']")
+        block.style.height = heightInput.value + "px";
     });
 
     //Цвет блока
-    randomColorBtn.addEventListener("click", function() {
-        var randomColor = getRandomColor();
-        block.style.backgroundColor = randomColor;
+    blockColorSelect.addEventListener('change', function() {
+        var colorBlock = blockColorSelect.value;
+        block.style.backgroundColor = colorBlock;
     });
 
 
@@ -81,63 +65,42 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Цвет Границ
-    borderColorBtn.addEventListener("click", function() {
-        var randomColor = getRandomColor();
-        block.style.borderColor = randomColor;
+    borderColorSelect.addEventListener("change", function() {
+        var colorBorder = borderColorSelect.value;
+        block.style.borderColor = colorBorder;
     });
 
     // Стиль Границ
-    borderStyleBtn.addEventListener("click", function() {
-        var styles = ["solid", "dashed", "dotted"];
-        var randomStyle = styles[Math.floor(Math.random() * styles.length)];
-        block.style.borderStyle = randomStyle;
+    borderStyleSelect.addEventListener("change", function() {
+        var styleBorder = borderStyleSelect.value;
+        block.style.borderStyle = styleBorder;
     });
 
     // Ширина Границ
-    decreaseBorderWidthBtn.addEventListener("click", function() {
-        var currentBorderWidth = parseInt(getComputedStyle(block).borderWidth);
-        if (currentBorderWidth > 1) {
-        block.style.borderWidth = (currentBorderWidth - 1) + "px";
-        }
-    });
-
-    // Ширина Границ
-    increaseBorderWidthBtn.addEventListener("click", function() {
-        var currentBorderWidth = parseInt(getComputedStyle(block).borderWidth);
-        block.style.borderWidth = (currentBorderWidth + 1) + "px";
+    BorderWidthButton.addEventListener("click", function() {
+        var currentBorderWidth = borderWidthInput = document.querySelector(".right .widthBorder[type='number']")
+        block.style.borderWidth = currentBorderWidth.value + "px";
     });
 
 
     // ----------------------------------------ТЕКСТ------------------------------------------- //
     
     // Список позиций и задание их
-    textPositionBtn.addEventListener("click", function () {
-        var positions = [
-        "top-left",
-        "top-center",
-        "top-right",
-        "middle-left",
-        "middle-center",
-        "middle-right",
-        "bottom-left",
-        "bottom-center",
-        "bottom-right",
-        ];
-    
-        var randomPosition = positions[Math.floor(Math.random() * positions.length)];
-        textContent.setAttribute("class", "block_text " + randomPosition);
+    textPositionBtn.addEventListener("change", function () {
+        var newPosition = textPositionBtn.value;
+        textContent.setAttribute("class", "block_text " + newPosition);
     });
     
     // Добавление повторений текста
     var repetitionCount = 0;
-    var isTextAnimationEnabled = false;
-    var textAnimationInterval;
     
     function addRepetitions() {
-        var newSpan = document.createElement("span");
-        newSpan.textContent = blockText.textContent + " ";
-        newSpan.classList.add("added");
-        textContent.appendChild(newSpan);
+        if (newtext != "") {
+            var newSpan = document.createElement("span");
+            newSpan.textContent = newtext;
+            newSpan.classList.add("added");
+            textContent.appendChild(newSpan);
+        }
     }
     
     document.querySelector(".bottom .text_shift_left").addEventListener("click", function () {
@@ -149,11 +112,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".bottom .text_shift_right").addEventListener("click", function () {
         if (repetitionCount > 0) {
             var addedSpans = block.querySelectorAll("span.added");
-            while (addedSpans.length > 0) {
+            if (addedSpans.length > 0) {
                 addedSpans[addedSpans.length - 1].remove();
-                addedSpans = addedSpans.pop();
             }
-            repetitionCount = 0; // Сбрасываем значение повторений
         }
     });
 
@@ -161,8 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Изменение текста и удаление добавленных блоков
     changeTextBtn.addEventListener("click", function () {
         var textInput = document.querySelector('.bottom .text[type="text"]');
-        var newtext = textInput.value;
-        blockText.textContent = newtext;
+        newtext = textInput.value;
     
         var addedSpans = block.querySelectorAll("span.added");
         for (var i = 0; i < addedSpans.length; i++) {
@@ -172,93 +132,89 @@ document.addEventListener("DOMContentLoaded", function() {
         repetitionCount = 0; // Сбрасываем значение повторений
     });
 
-    // Включение/выключение анимации текста
-    enableTextAnimationsBtn.addEventListener("click", function () {
-        isTextAnimationEnabled = !isTextAnimationEnabled;
-        if (isTextAnimationEnabled) {
-            startTextAnimation();
-        } else {
-            stopTextAnimation();
-        }
-    });
 
-    // Смена анимации текста
-  
-    changeTextAnimationsBtn.addEventListener("click", function () {
-        stopTextAnimation();
-        var animations = ["color", "opacity"];
-        var randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-        startTextAnimation(randomAnimation);
+    // ----------------------------------------АНИМАЦИИ------------------------------------------- //
+    var textAnimationInterval;
+
+    // Включение/выключение анимации текста через Select
+    textAnimationSelect.addEventListener("change", function () {
+        var animationType = textAnimationSelect.value;
+        if (animationType === "none") {
+            stopTextAnimation();
+        } else {
+            startTextAnimation(animationType);
+        }
     });
 
     // Функция для запуска анимации текста
-    function startTextAnimation(animationType = "color") {
+    function startTextAnimation(animationType) {
         stopTextAnimation();
         textAnimationInterval = setInterval(function () {
-        var addedSpans = block.querySelectorAll("span.added");
-
-        if (animationType === "color") {
-            blockText.style.color = getRandomColor();
-        } else if (animationType === "opacity") {
-            var randomOpacity = Math.random().toFixed(1);
-            blockText.style.opacity = randomOpacity;
-        }
-        
-        for (var i = 0; i < addedSpans.length; i++) {
-            if (animationType === "color") {
-                addedSpans[i].style.color = getRandomColor();
-            } else if (animationType === "opacity") {
-                var randomOpacity = Math.random().toFixed(1);
-                addedSpans[i].style.opacity = randomOpacity;
+            var addedSpans = block.querySelectorAll("span.added");
+            
+            for (var i = 0; i < addedSpans.length; i++) {
+                if (animationType === "color") {
+                    addedSpans[i].style.color = getRandomColor();
+                } else if (animationType === "opacity") {
+                    var randomOpacity = Math.random().toFixed(1);
+                    addedSpans[i].style.opacity = randomOpacity;
+                } else if (animationType === "wave") {
+                    textContent.style.animation = "wave-animation 2s infinite";
+                    return;
+                }
             }
-        }
         }, 1000);
     }
 
     // Функция для остановки анимации текста
     function stopTextAnimation() {
-        blockText.style.color = "#000000"
-		blockText.style.opacity = 1;
         var addedSpans = block.querySelectorAll("span.added");
         for (var i = 0; i < addedSpans.length; i++) {
             addedSpans[i].style.color = "#000000";
-			addedSpans[i].style.opacity = 1;
+            addedSpans[i].style.opacity = 1;
         }
+        textContent.style.animation = "none";
         clearInterval(textAnimationInterval);
     }
     
     // ----------------------------------------ТЕНЬ------------------------------------------- //
 
 
-    // Вкл/Вкл тени
-    enableShadowBtn.addEventListener("click", function() {
-        var currentBoxShadow = getComputedStyle(block).boxShadow;
-        
-        if (currentBoxShadow !== "none") {
+    function createShadow() {
+        var selectedSides = shadowSidesSelect.value;
+        var isTopSelected = selectedSides.includes("top");
+        var isBottomSelected = selectedSides.includes("bottom");
+        var isLeftSelected = selectedSides.includes("left");
+        var isRightSelected = selectedSides.includes("right");
+        var newShadowColor = shadowColorSelect.value;
+    
+        var boxShadowValue = "";
+    
+        if (isTopSelected) {
+            boxShadowValue += "0px -10px 10px " + newShadowColor + ", ";
+        }
+        if (isBottomSelected) {
+            boxShadowValue += "0px 10px 10px " + newShadowColor + ", ";
+        }
+        if (isLeftSelected) {
+            boxShadowValue += "-10px 0px 10px " + newShadowColor + ", ";
+        }
+        if (isRightSelected) {
+            boxShadowValue += "10px 0px 10px " + newShadowColor + ", ";
+        }
+    
+        if (boxShadowValue === "") {
             block.style.boxShadow = "none";
         } else {
-            changeShadow();
+            boxShadowValue = boxShadowValue.slice(0, -2);
+            block.style.boxShadow = boxShadowValue;
         }
-    });
-    
-
-    // Вызов изменения теней если нажали изменить
-    changeShadowBtn.addEventListener("click", function() {
-        changeShadow();
-    });
-    
-    // Изменение теней
-    function changeShadow() {
-        var offsetX = Math.floor(Math.random() * 10);
-        var offsetY = Math.floor(Math.random() * 10);
-        var blurRadius = Math.floor(Math.random() * 10);
-        var spreadRadius = Math.floor(Math.random() * 10);
-        var color = getRandomColor();
-        block.style.boxShadow = `${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${color}`;
     }
-
-
-      
+    
+    shadowColorSelect.addEventListener("change", createShadow);
+    
+    shadowSidesSelect.addEventListener("change", createShadow);
+    
 
     // ----------------------------------------ФУНКЦИИ------------------------------------------- //
 

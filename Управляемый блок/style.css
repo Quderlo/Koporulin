@@ -55,11 +55,16 @@ button {
 
 input {
     height: 40px;
-    width: 200px;
+    width: 100px;
+}
+
+select {
+  height: 40px;
+  width: 100px;
 }
 
 div.block {
-    background-color: rgb(128, 128, 128);
+    background-color: pink;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -79,6 +84,7 @@ div.block {
     position: absolute;
     top: 9px;
     left: 9px;
+    text-align: left;
   }
   
   .top-center {
@@ -86,12 +92,14 @@ div.block {
     top: 9px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
   }
   
   .top-right {
     position: absolute;
     top: 9px;
     right: 9px;
+    text-align: right;
   }
   
   .middle-left {
@@ -99,6 +107,7 @@ div.block {
     top: 50%;
     left: 9px;
     transform: translateY(-50%);
+    text-align: left;
   }
   
   .middle-center {
@@ -106,6 +115,7 @@ div.block {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
   }
   
   .middle-right {
@@ -113,12 +123,14 @@ div.block {
     top: 50%;
     right: 9px;
     transform: translateY(-50%);
+    text-align: right;
   }
   
   .bottom-left {
     position: absolute;
     bottom: 9px;
     left: 9px;
+    text-align: left;
   }
   
   .bottom-center {
@@ -126,11 +138,26 @@ div.block {
     bottom: 9px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
   }
   
   .bottom-right {
     position: absolute;
     bottom: 9px;
     right: 9px;
+    text-align: right;
   }
 
+  p {
+    padding: 5px;
+  }
+
+  
+  @keyframes wave-animation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }

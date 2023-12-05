@@ -16,46 +16,114 @@
                 <th colspan="2">Тень</th>
             </tr>
             <tr>
-                 <!-- Ширина -->
-                 <td class="left"><button class="width_block">Уменьшить</button></td>
-                 <td class="right"><button class="width_block">Увеличить</button></td>
+                <!-- Ширина -->
+                <td class="left"><button class="width_block">Изменить</button></td>
+                <td class="right"> <label title="width" class="width"></label><input class="width" title="width" type="number" value="100"></input></td>
                 <!-- Высота -->
-                <td class="left"><button class="height_block">Уменьшить</button> </td>
-                <td class="right"><button class="height_block">Увеличить</button></td>
+                <td class="left"><button class="height_block">Изменить</button> </td>
+                <td class="right"> <label title="height" class="height"></label><input class="height" title="height" type="number" value="100"></input></td>
                 <!-- Цвет -->
-                <td class="both"><button class="color_block">Случайный</button></td>
+                <td class="both">
+                    <select id="blockColorSelect">
+                    <option value="red">Красный</option>
+                    <option value="blue">Синий</option>
+                    <option value="green">Зеленый</option>
+                    <option value="yellow">Желтый</option>
+                    <option value="orange">Оранжевый</option>
+                    <option value="purple">Фиолетовый</option>
+                    <option value="pink" selected>Розовый</option>
+                    <option value="brown">Коричневый</option>
+                    <option value="gray">Серый</option>
+                </td>
                 <!-- Границы -->
                 <td class="left"><button class="enable_border">Вкл/Выкл</button></td>
-                <td class="bottom"><button class="color_border">Цвет</button></td>
-                <td class="bottom"><button class="style">Стиль</button></td>
-                <td class="bottom"><button class="width_border">Уменьшить толщину</button></td>
-                <td class="right"><button class="width_border">Увеличить толщину</button></td>
+                <td class="bottom">
+                    <select id="borderColorSelect">
+                    <option value="black" selected>Чёрный</option>
+                    <option value="red">Красный</option>
+                    <option value="blue">Синий</option>
+                    <option value="green">Зеленый</option>
+                    <option value="yellow">Желтый</option>
+                    <option value="orange">Оранжевый</option>
+                    <option value="purple">Фиолетовый</option>
+                    <option value="pink">Розовый</option>
+                    <option value="brown">Коричневый</option>
+                    <option value="gray">Серый</option>
+                </td>
+                <td class="bottom">
+                    <select id="borderStyleSelect">
+                    <option value="solid" selected>Слитно</option>
+                    <option value="dashed">Пунктир</option>
+                    <option value="dotted">Кругами</option>
+                </td>
+                <td class="bottom"><button class="width_border">Изменить ширину толщину</button></td>
+                <td class="right"> <label title="widthBorder" class="widthBorder"></label><input class="widthBorder" title="widthBorder" type="number" value="0"></input></td>
                 <!-- Тень -->
-                <td class="left"><button class="enable_shadow">Вкл/Выкл</button></td>
-                <td class="right"><button class="change_shadow">Изменить</button></td>
+                <td class="left">
+                    <select id="shadowColorSelect">
+                    <option value="black" selected>Чёрный</option>
+                    <option value="red">Красный</option>
+                    <option value="blue">Синий</option>
+                    <option value="green">Зеленый</option>
+                    <option value="yellow">Желтый</option>
+                    <option value="orange">Оранжевый</option>
+                    <option value="purple">Фиолетовый</option>
+                    <option value="pink">Розовый</option>
+                    <option value="brown">Коричневый</option>
+                    <option value="gray">Серый</option>
+                </td>
+                <td class="right">
+                    <select id="shadowSidesSelect">
+                        <option value="none" selected>Без тени</option>
+                        <option value="top">Тень сверху</option>
+                        <option value="bottom">Тень снизу</option>
+                        <option value="left">Тень слева</option>
+                        <option value="right">Тень справа</option>
+                        <option value="top-left">Тень сверху и слева</option>
+                        <option value="top-right">Тень сверху и справа</option>
+                        <option value="bottom-left">Тень снизу и слева</option>
+                        <option value="bottom-right">Тень снизу и справа</option>
+                    </select>
+                </td>
                 <!-- Стиль это изменять альфа канал от ~0 до 1 (tg) -->
             </tr>
             <tr>
                 <!-- Текст -->
-                <th colspan="6">Текст</th>
-                <th colspan="2">Анимация текста</th>
+                <th colspan="5">Текст</th>
+                <th>Анимация текста</th>
             </tr>
             <tr>
                 <td class="left"><button class="change_text">Изменить текст на</button></td>
-                <td colspan="2" class="bottom"> <label title="text" class="text"></label><input class="text" title="text" type="text"></input></td>
+                <td class="bottom"> <label title="text" class="text"></label><input class="text" title="text" type="text"></input></td>
                 <td class="bottom"><button class="text_shift_left">Добавить повторения</td>
                 <td class="bottom"><button class="text_shift_right">Уменьшить повторения</td>
-                <td class="right"><button class="text_position">Изменить положение</td>
-                <td class="left"><button class="enable_text_animations">Вкл/выкл анимацию текста</button></td>
-                <td class="right"><button class="change_text_animations">Изменить анимацию текста</button></td>
+                <td class="right">                
+                    <select id="textPositionSelect">
+                        <option value="top-left" selected>Слева-сверху</option>
+                        <option value="top-center">Сверху-по-центру</option>
+                        <option value="top-right">Справа-сверху</option>
+                        <option value="middle-left">Слева-по-середине</option>
+                        <option value="middle-center">В-центре</option>
+                        <option value="middle-right">Справа-по-середине</option>
+                        <option value="bottom-left">Слева-снизу</option>
+                        <option value="bottom-center">Снизу-по-центру</option>
+                        <option value="bottom-right">Справа-снизу</option>
+                    </select>
+                </td>
+                <td class="both">
+                    <select id="textAnimationSelect">
+                        <option value="none">Без анимации</option>
+                        <option value="color">Анимация цвета</option>
+                        <option value="opacity">Анимация прозрачности</option>
+                        <option value="wave">Анимация волнового движения</option>
+                    </select>
+                </td>
             </tr>
         </table>
     </div>
 
     <div class="block">
-        <p class="text_content">
-            <span class="block_text">Это блок!</span>
-        </p>
+        <p class="text_content"></p>
     </div>
 </body>
 </html>
